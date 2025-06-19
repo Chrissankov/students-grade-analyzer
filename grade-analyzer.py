@@ -50,7 +50,7 @@ def get_avg_grade(grades, count_students): # O(1)
 get_avg_grade(student_grades, number_students) 
 
 # Overall complexity of the function: O(n) 
-def get_highest_grade(grades, names, index=0, max_grade=0, max_indices=0): # O(1)
+def get_highest_grade(grades, names, index=0, max_grade=0, max_indices=[]): # O(1)
     if index == len(grades): # Base Case & O(1)
         print("\n**** Highest Grade ****") # O(1)
         for i in max_indices:  # O(m) 
@@ -70,3 +70,17 @@ def get_highest_grade(grades, names, index=0, max_grade=0, max_indices=0): # O(1
 
 # Calling the function
 get_highest_grade(student_grades, student_names) 
+
+# Overall complexity of the function: O(n) 
+def count_passed(grades, index=0, count=0): # O(1)
+    if index == len(grades): # O(1)
+        print("\nPassed Students(Grade >= 60):", count) # O(1)
+        return # O(1)
+    
+    if grades[index] >= 60: # O(1)
+        count += 1 # O(1)
+
+    return count_passed(grades, index + 1, count) # O(n)
+
+# Calling the function
+count_passed(student_grades)
