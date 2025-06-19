@@ -3,7 +3,7 @@ student_names = [] # O(1)
 student_grades = [] # O(1)
 
 # Overall complexity of the loop: O(n)
-for student in range(number_students): # O(n)
+for student in range(number_students): # O(1)
     student_name: str = input(str(student + 1) + " - Student Name: ") # O(1)
 
     # In worst case user keeps entering invalid grades m times: O(m)
@@ -16,11 +16,20 @@ for student in range(number_students): # O(n)
     student_names.append(student_name) # O(1)
     student_grades.append(student_grade) # O(1)
 
-# Overall complexity of the loop: O(n) 
-def display_student_name(): # O(n)
+# Overall complexity of the function: O(n) 
+def display_student_name(): # O(1)
     for student in range(number_students): # O(n)
         print("\n**** Student" , str(student + 1) , "****") # O(1)
         print("Name:", student_names[student]) # O(1)
         print("Grade:", student_grades[student]) # O(1)
 
 display_student_name() # O(1)
+
+# Overall complexity of the function: O(n) 
+def get_avg_grade(grades, count_students): # O(1)
+    sum = 0 # O(1)
+    for student_grade in grades: # O(n)
+        sum += student_grade # O(1)
+    print("\nAverage Grade of the Class:", sum / count_students ) # O(1)
+
+get_avg_grade(student_grades, number_students) # O(1)
